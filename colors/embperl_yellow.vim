@@ -1,6 +1,6 @@
 " Vim color file
 " Maintainer:	Lukas Zapletal <Lukas.Zapletal@seznam.cz>
-" Version: 1.1
+" Version: 1.2
 " Last Change:	2001 Jul 15
 
 " This is the color scheme for Embperl like Interdev (yellow code).
@@ -9,7 +9,7 @@
 " autocmd BufNewFile,BufRead *.epl,*.phtml colorscheme embperl_yellow
 "
 " CHANGELOG: v1.0 - initial release
-" v1.1	- major bugfix with background in perl statements
+" v1.2	- major bugfix with background in perl statements
 "
 " TODO:
 " - hold the color in a variable to let user change it`s value

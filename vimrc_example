@@ -1,0 +1,6 @@
+"let perl_fold=1
+augroup filetypedetect
+autocmd! BufNewFile,BufRead *.epl,*.phtml setf embperl
+augroup END
+
+autocmd BufNewFile,BufRead *.epl,*.phtml colorscheme embperl_yellow

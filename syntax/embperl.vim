@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	embperl
 " Maintainer:	Lukas Zapletal <Lukas.Zapletal@seznam.cz>
-" Version: 1.1
+" Version: 1.2
 " URL: http://vim.sourceforge.net/scripts/search_results.php?keywords=Embperl
 " Last change:	2001 May 1
 "
@@ -22,6 +22,7 @@
 "	v1.1	- increased min. lines in syncing
 "				- [$ $] now completely fixed
 "				- minor bugfixes and documentation update
+"	v1.2	- minor bugfixes
 "
 " TODO:
 " - folding for embperl`s '[+ [- [$ ...'
