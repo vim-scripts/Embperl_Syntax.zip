@@ -1,20 +1,30 @@
 " Vim syntax file
 " Language:	embperl
 " Maintainer:	Lukas Zapletal <Lukas.Zapletal@seznam.cz>
-" Version: 1.0
+" Version: 1.1
 " URL: http://vim.sourceforge.net/scripts/search_results.php?keywords=Embperl
 " Last change:	2001 May 1
+"
+" Special thanks: Steve Willner, author of 5.x version
 
-" Example .vimrc:
+" USE:
 " 
-" 	let perl_fold=1
+" 	let perl_fold=1		" note enabling this will slow down synchronizing
 "		augroup filetypedetect
 "		autocmd! BufNewFile,BufRead *.epl,*.phtml setf embperl
 "		augroup END
 "
 "		" if you want yellow code like in Interdev:
 "		autocmd BufNewFile,BufRead *.epl,*.phtml colorscheme embperl_yellow
-"		
+"
+"	CHANGELOG:
+"	v1.0 - initial release
+"	v1.1	- increased min. lines in syncing
+"				- [$ $] now completely fixed
+"				- minor bugfixes and documentation update
+"
+" TODO:
+" - folding for embperl`s '[+ [- [$ ...'
 
 if version < 600
   syntax clear
@@ -38,13 +48,18 @@ endif
 syn cluster htmlPreproc add=EmbperlInsideHtml
 
 " these are the embperl regions, which simply contain perl expressions (except for the special [$ mode)
-syn keyword embperlMeta contained if elsif else while foreach endif endwhile endforeach vars hidden
+"syn keyword embperlMeta contained if elsif else while foreach endif endwhile endforeach vars hidden endsub
+syn keyword embperlMeta contained if elsif else endif while endwhile do until foreach endforeach hidden var sub endsub
 syn region EmbperlInsideHtml matchgroup=Tags start="\[+"rs=s end="+\]"re=e contains=@EmbperlPerl
 syn region EmbperlInsideHtml matchgroup=Tags start=+\[-+rs=s end=+-\]+re=e contains=@EmbperlPerl
 syn region EmbperlInsideHtml matchgroup=Tags start=+\[!+rs=s end=+!\]+re=e contains=@EmbperlPerl
-syn region EmbperlInsideHtml matchgroup=Tags start=+\[\$+ end=+\$\]+ contains=embperlMeta,@EmbperlPerl
+syn region EmbperlInsideHtml matchgroup=Tags start=+\[\$+rs=s end=+\$\]+re=e contains=embperlMeta, perlConditional, perlOperator
 
 hi link embperlMeta 		perlStatement
+
+" syncing
+syntax sync minlines=40
+syntax sync maxlines=100
 
 let b:current_syntax = "embperl"
 

@@ -1,13 +1,19 @@
 " Vim color file
 " Maintainer:	Lukas Zapletal <Lukas.Zapletal@seznam.cz>
-" Version: 1.0
+" Version: 1.1
 " Last Change:	2001 Jul 15
 
 " This is the color scheme for Embperl like Interdev (yellow code).
+" To use it use command like this:
 "
-" BUGS:
-" - '[$' cannot be handled correctly (since perl parses '$]')
-" - '%' is not yellow (why?)
+" autocmd BufNewFile,BufRead *.epl,*.phtml colorscheme embperl_yellow
+"
+" CHANGELOG: v1.0 - initial release
+" v1.1	- major bugfix with background in perl statements
+"
+" TODO:
+" - hold the color in a variable to let user change it`s value
+"  (I do not know how to store color #xxxxxx in a variable)
 
 highlight clear Normal
 set bg&
@@ -68,9 +74,9 @@ hi link embpDebug		embpSpecial
 
 if version >= 508
   if version < 508
-    command -nargs=+ HiLink hi link <args>
+    command -nargs=+ HiLink hi! link <args>
   else
-    command -nargs=+ HiLink hi def link <args>
+    command -nargs=+ HiLink hi! def link <args>
   endif
   " The default highlighting.
   HiLink perlSharpBang		embpPreProc
