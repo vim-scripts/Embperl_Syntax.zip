@@ -1,0 +1,5 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=61
+
+Rewrite of the official embperl syntax file. There is a color scheme for setting GUI like Interdev (yellow perl code).
+
+This is "beta" version of the script. It needs more testing (in vim < 6.0).
